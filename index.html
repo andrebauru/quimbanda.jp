@@ -24,7 +24,7 @@
   <meta property="og:site_name"    content="TE.K.E.M. — Templo de Kimbanda Exu Mirim">
   <meta property="og:title"        content="TE.K.E.M. — Templo de Kimbanda Exu Mirim | Japão">
   <meta property="og:description"  content="Trabalhos espirituais autênticos de Quimbanda no Japão. Casa de Exu Mirim com suporte de mestre brasileiro. Atendimento GRATUITO aos sábados. Fale no WhatsApp!">
-  <meta property="og:image"        content="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta property="og:image"        content="https://images.unsplash.com/photo-1467810622836-4a67f9f98ca7?auto=format&fit=crop&w=1200&h=630&q=80">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt"    content="TE.K.E.M. — Templo de Kimbanda Exu Mirim no Japão">
@@ -34,7 +34,7 @@
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="TE.K.E.M. — Templo de Kimbanda Exu Mirim | Japão">
   <meta name="twitter:description" content="Trabalhos espirituais autênticos de Quimbanda no Japão. Atendimento gratuito aos sábados. Casa de Exu Mirim.">
-  <meta name="twitter:image"       content="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta name="twitter:image"       content="https://images.unsplash.com/photo-1467810622836-4a67f9f98ca7?auto=format&fit=crop&w=1200&h=630&q=80">
 
   <!-- ═══ JSON-LD SCHEMA MARKUP ═══ -->
   <script type="application/ld+json">
@@ -336,12 +336,27 @@
     .hero-overlay {
       background: linear-gradient(
         to bottom,
-        rgba(5,5,5,.25) 0%,
-        rgba(5,5,5,.5)  35%,
-        rgba(5,5,5,.78) 68%,
+        rgba(5,5,5,.30) 0%,
+        rgba(5,5,5,.55) 35%,
+        rgba(5,5,5,.85) 68%,
         rgba(5,5,5,1)   100%
       );
     }
+    /* Ember vermelho na base do hero */
+    .hero-ember {
+      background: linear-gradient(to top,
+        rgba(196,30,58,.18) 0%,
+        rgba(196,30,58,.06) 30%,
+        transparent 65%
+      );
+    }
+
+    /* ═══ FILTRO CINEMATOGRÁFICO em imagens de seção ═══ */
+    .section-img {
+      filter: grayscale(0.45) contrast(1.22) brightness(0.88);
+      transition: filter .5s ease;
+    }
+    .section-img:hover { filter: grayscale(0.25) contrast(1.18) brightness(0.92); }
 
     /* ── Bento Grid ── */
     .bento {
@@ -587,18 +602,19 @@
   <!-- Background image -->
   <div class="absolute inset-0 z-0">
     <img
-      src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=80"
-      alt="Atmosfera mística — TE.K.E.M. Templo de Kimbanda Exu Mirim no Japão"
+      src="https://images.unsplash.com/photo-1467810622836-4a67f9f98ca7?auto=format&fit=crop&w=1920&q=80"
+      alt="Fogueira ritual sagrada — TE.K.E.M. Templo de Kimbanda Exu Mirim no Japão"
       id="hero-img"
-      class="w-full h-full object-cover"
-      style="opacity:.38;"
+      class="w-full h-full object-cover section-img"
+      style="opacity:.55;"
       loading="eager"
       fetchpriority="high"
-      onerror="this.style.display='none'"
+      onerror="this.src='https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=80'"
     >
     <div class="hero-overlay absolute inset-0"></div>
+    <div class="hero-ember  absolute inset-0"></div>
     <!-- Side gradient -->
-    <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(5,5,5,.75) 0%,transparent 50%,rgba(5,5,5,.35) 100%)"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(5,5,5,.80) 0%,transparent 55%,rgba(5,5,5,.4) 100%)"></div>
 
     <!-- ═══ MARCA D'ÁGUA do logo ═══ -->
     <div class="logo-watermark" aria-hidden="true">
@@ -674,13 +690,13 @@
 
     <!-- Trust strip -->
     <div id="h-trust" class="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm" style="color:rgba(240,237,232,.38)">
-      <span class="flex items-center gap-2"><span style="color:var(--gold)">✦</span> Iniciados &amp; experientes</span>
+      <span class="flex items-center gap-2"><span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span> Iniciados &amp; experientes</span>
       <span class="w-px h-4 hidden sm:block" style="background:rgba(255,255,255,.1)"></span>
-      <span class="flex items-center gap-2"><span style="color:var(--gold)">✦</span> Casa de Exu Mirim</span>
+      <span class="flex items-center gap-2"><span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span> Casa de Exu Mirim</span>
       <span class="w-px h-4 hidden sm:block" style="background:rgba(255,255,255,.1)"></span>
-      <span class="flex items-center gap-2"><span style="color:var(--gold)">✦</span> Hora e dia marcados</span>
+      <span class="flex items-center gap-2"><span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span> Hora e dia marcados</span>
       <span class="w-px h-4 hidden sm:block" style="background:rgba(255,255,255,.1)"></span>
-      <span class="flex items-center gap-2"><span style="color:var(--gold)">✦</span> Sigilo absoluto</span>
+      <span class="flex items-center gap-2"><span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span> Sigilo absoluto</span>
     </div>
   </div>
 
@@ -700,70 +716,70 @@
     <!-- Set 1 -->
     <div class="flex items-center gap-14 pr-14">
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">500+ Trabalhos Realizados</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Casa de Exu Mirim</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Atendimento Gratuito aos Sábados</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Suporte de Mestre do Brasil</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Quimbanda Autêntica no Japão</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Hora e Dia Marcados</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Jogo de Búzios de Exu</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">10+ Anos de Experiência</span>
       </span>
     </div>
     <!-- Set 2 (duplicate for seamless loop) -->
     <div class="flex items-center gap-14 pr-14" aria-hidden="true">
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">500+ Trabalhos Realizados</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Casa de Exu Mirim</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Atendimento Gratuito aos Sábados</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Suporte de Mestre do Brasil</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Quimbanda Autêntica no Japão</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Hora e Dia Marcados</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Jogo de Búzios de Exu</span>
       </span>
       <span class="flex items-center gap-3 shrink-0">
-        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span style="color:var(--gold)"><svg viewBox="0 0 12 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:11px;height:14px;display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M6 0C4.2 2.8 1 6.5 1 10.5a5 5 0 0010 0C11 6.5 7.8 2.8 6 0zm0 14a3 3 0 01-3-3c0-2 1.5-3.8 2.2-5.5.8 1.8 1.5 3.5 1.5 5a1.5 1.5 0 003 0c0-1.8-.8-3.5-1.5-5.5C9.8 7 11 9.2 11 10.5a5 5 0 01-5 3.5z"/></svg></span>
         <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">10+ Anos de Experiência</span>
       </span>
     </div>
@@ -993,18 +1009,20 @@
     <div class="reveal relative">
       <div class="relative rounded-3xl overflow-hidden" style="aspect-ratio:4/5">
         <img
-          src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
-          alt="TE.K.E.M. — Templo de Kimbanda Exu Mirim: casa de trabalhos espirituais no Japão"
-          class="w-full h-full object-cover"
-          style="opacity:.85"
+          src="https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?auto=format&fit=crop&w=800&q=80"
+          alt="Velas acesas em ritual de Kimbanda — TE.K.E.M. Templo de Kimbanda Exu Mirim"
+          class="w-full h-full object-cover section-img"
+          style="opacity:.9"
           loading="lazy"
           width="800" height="1000"
-          onerror="this.style.background='linear-gradient(135deg,#1a0a12,#0a0a1a)';this.style.display='block'"
+          onerror="this.src='https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80'"
         >
         <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(5,5,5,.85) 0%,transparent 50%)"></div>
-        <!-- Overlay sigil -->
-        <div class="absolute bottom-6 left-6">
-          <p class="font-display font-black text-6xl" style="color:rgba(212,175,55,.18);line-height:1">✦</p>
+        <!-- Overlay chama ritual -->
+        <div class="absolute bottom-6 left-6" aria-hidden="true">
+          <svg viewBox="0 0 48 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:72px;height:96px;color:rgba(212,175,55,.14)">
+            <path d="M24 0C19 8 8 22 8 38a16 16 0 0032 0C40 22 29 8 24 0zm0 52a10 10 0 01-10-10c0-6 4.5-12 7-17 2.5 5 4.5 10 4.5 14a5.5 5.5 0 0011 0c0-5-2.5-10-5-14.5 5 7 8 14 8 17.5A10 10 0 0124 52z"/>
+          </svg>
         </div>
       </div>
 
