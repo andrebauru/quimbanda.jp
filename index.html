@@ -158,7 +158,7 @@
               muted:        '#888888',
             },
             fontFamily: {
-              display: ['"Playfair Display"', 'serif'],
+              display: ['FingerPaint', '"Playfair Display"', 'serif'],
               sans:    ['"Plus Jakarta Sans"', 'sans-serif'],
             },
           }
@@ -177,6 +177,15 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ═══ FONT-FACE LOCAL: FingerPaint ═══ */
+    @font-face {
+      font-family: 'FingerPaint';
+      src: url('FingerPaint.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --crimson: #C41E3A;
       --crimson-l: #E8253F;
@@ -185,6 +194,7 @@
       --ink: #050505;
       --ink-2: #0a0a0a;
       --cream: #F0EDE8;
+      --font-display: 'FingerPaint', 'Playfair Display', serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -196,6 +206,19 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
+
+    /* ═══ APLICAÇÃO OBRIGATÓRIA: FingerPaint em todos os títulos ═══ */
+    h1, h2, h3,
+    .font-display,
+    [class*="font-display"] {
+      font-family: var(--font-display) !important;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    /* Exceção: subtítulos pequenos dentro de displays não devem herdar */
+    h1 .text-xs, h2 .text-xs, h3 .text-xs,
+    .font-display .text-xs,
+    .font-display .text-sm { font-family: 'Plus Jakarta Sans', sans-serif !important; }
 
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 5px; }
@@ -225,6 +248,50 @@
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ═══ LOGO: sem artefatos sobre fundo escuro ═══ */
+    .logo-img {
+      mix-blend-mode: screen;          /* elimina bordas brancas/artefatos em bg escuro */
+      -webkit-filter: drop-shadow(0 0 0 transparent);
+      filter: drop-shadow(0 0 0 transparent);
+      image-rendering: -webkit-optimize-contrast;
+    }
+    /* Logo no header */
+    .header-logo {
+      height: 2.5rem;                  /* mobile: 2.5rem */
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    @media (min-width: 768px) {
+      .header-logo { height: 3rem; }   /* desktop: 3rem */
+    }
+    /* Garante layout ok em telas < 375px */
+    @media (max-width: 374px) {
+      .header-logo { height: 2rem; max-width: 120px; }
+    }
+
+    /* Logo marca d'água */
+    .logo-watermark {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .logo-watermark img {
+      width: 70%;
+      max-width: 640px;
+      opacity: 0.03;
+      mix-blend-mode: screen;
+      transform: rotate(-8deg);
+      filter: blur(0.5px) drop-shadow(0 0 0 transparent);
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
     /* ── Gradient text ── */
@@ -460,12 +527,14 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
       <!-- Logo / Identidade TE.K.E.M. -->
-      <a href="#" class="flex items-center gap-2.5 shrink-0" aria-label="TE.K.E.M. — Templo de Kimbanda Exu Mirim">
-        <span class="gdot"></span>
-        <span class="font-display leading-none flex flex-col">
-          <span class="font-black text-xl md:text-2xl g-gold tracking-widest">TE.K.E.M.</span>
-          <span class="hidden sm:inline-block text-[9px] font-semibold tracking-[.12em] uppercase" style="color:rgba(240,237,232,.38)">Templo de Kimbanda Exu Mirim</span>
-        </span>
+      <a href="#" class="flex items-center gap-2 shrink-0 min-w-0" aria-label="TE.K.E.M. — Templo de Kimbanda Exu Mirim">
+        <img
+          src="LOGO no BG.png"
+          alt="TE.K.E.M. — Templo de Kimbanda Exu Mirim"
+          class="header-logo logo-img"
+          loading="eager"
+          fetchpriority="high"
+        >
       </a>
 
       <!-- Desktop Nav -->
@@ -530,6 +599,17 @@
     <div class="hero-overlay absolute inset-0"></div>
     <!-- Side gradient -->
     <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(5,5,5,.75) 0%,transparent 50%,rgba(5,5,5,.35) 100%)"></div>
+
+    <!-- ═══ MARCA D'ÁGUA do logo ═══ -->
+    <div class="logo-watermark" aria-hidden="true">
+      <img
+        src="LOGO no BG.png"
+        alt=""
+        role="presentation"
+        draggable="false"
+        loading="eager"
+      >
+    </div>
   </div>
 
   <!-- Decorative orbs -->
@@ -1148,14 +1228,17 @@
 
       <!-- Brand TE.K.E.M. -->
       <div>
-        <div class="flex items-center gap-2.5 mb-3">
-          <span class="gdot"></span>
-          <span class="font-display leading-none">
-            <span class="font-black text-2xl g-gold tracking-widest">TE.K.E.M.</span>
-          </span>
-        </div>
-        <p class="text-xs font-semibold tracking-[.12em] uppercase mb-3" style="color:rgba(212,175,55,.5)">Templo de Kimbanda Exu Mirim</p>
-        <p class="text-sm leading-relaxed" style="color:rgba(240,237,232,.38)">
+        <a href="#" class="inline-flex items-center gap-2 mb-3">
+          <img
+            src="LOGO no BG.png"
+            alt="TE.K.E.M. — Templo de Kimbanda Exu Mirim"
+            class="logo-img"
+            style="height:2.2rem;width:auto;object-fit:contain;"
+            loading="lazy"
+          >
+        </a>
+        <p class="text-xs font-semibold tracking-[.12em] uppercase mb-2" style="color:rgba(212,175,55,.5);font-family:'Plus Jakarta Sans',sans-serif">Templo de Kimbanda Exu Mirim</p>
+        <p class="text-sm leading-relaxed" style="color:rgba(240,237,232,.38);font-family:'Plus Jakarta Sans',sans-serif">
           Trabalhos espirituais autênticos de Kimbanda no Japão. Casa de Exu Mirim com suporte de mestre quimbandeiro brasileiro.
         </p>
       </div>
