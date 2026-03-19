@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quimbanda no Japão — Trabalhos espirituais autênticos. Limpeza, desmanche de feitiços, abertura de caminhos, amarração, jogo de búzios de Exu e muito mais. Atendimento gratuito aos sábados. Casa de Exu Mirim.">
+  <meta name="keywords" content="quimbanda japão, trabalhos espirituais, limpeza espiritual, exu mirim, jogo de búzios, abertura de caminhos, amarração amorosa">
+  <title>Quimbanda JP — Trabalhos Espirituais no Japão</title>
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23C41E3A'/><text x='50' y='68' text-anchor='middle' font-size='52' fill='%23D4AF37' font-family='serif'>✦</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Config (MUST be before CDN) -->
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              crimson:      '#C41E3A',
+              'crimson-l':  '#E8253F',
+              gold:         '#D4AF37',
+              'gold-l':     '#F0CC55',
+              ink:          '#050505',
+              'ink-2':      '#0a0a0a',
+              'ink-3':      '#111111',
+              cream:        '#F0EDE8',
+              muted:        '#888888',
+            },
+            fontFamily: {
+              display: ['"Playfair Display"', 'serif'],
+              sans:    ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson: #C41E3A;
+      --crimson-l: #E8253F;
+      --gold: #D4AF37;
+      --gold-l: #F0CC55;
+      --ink: #050505;
+      --ink-2: #0a0a0a;
+      --cream: #F0EDE8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--ink);
+      color: var(--cream);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: var(--crimson); border-radius: 3px; }
+
+    /* ── Grain Texture ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    /* ── Glass ── */
+    .glass {
+      background: rgba(255,255,255,0.035);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .glass-header {
+      background: rgba(5,5,5,0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── Gradient text ── */
+    .g-gold {
+      background: linear-gradient(130deg, #D4AF37 0%, #F0CC55 50%, #C9A227 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .g-red {
+      background: linear-gradient(130deg, #C41E3A 0%, #E8253F 60%, #C41E3A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── CTA Pulse ── */
+    @keyframes pulse-red {
+      0%,100% { box-shadow: 0 0 18px rgba(196,30,58,.45), 0 0 36px rgba(196,30,58,.20); }
+      50%      { box-shadow: 0 0 32px rgba(196,30,58,.75), 0 0 64px rgba(196,30,58,.35); }
+    }
+    .btn-pulse { animation: pulse-red 2.2s ease-in-out infinite; }
+    .btn-pulse:hover {
+      animation: none;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 42px rgba(196,30,58,.9), 0 0 80px rgba(196,30,58,.4);
+    }
+
+    /* ── Marquee ── */
+    .marquee-wrap { overflow: hidden; }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Hero overlay ── */
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(5,5,5,.25) 0%,
+        rgba(5,5,5,.5)  35%,
+        rgba(5,5,5,.78) 68%,
+        rgba(5,5,5,1)   100%
+      );
+    }
+
+    /* ── Bento Grid ── */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 14px;
+    }
+    .b-big  { grid-column: span 2; grid-row: span 2; }
+    .b-1    { grid-column: span 1; }
+    .b-wide { grid-column: span 2; }
+
+    @media (max-width: 767px) {
+      .bento { grid-template-columns: 1fr; }
+      .b-big, .b-1, .b-wide { grid-column: span 1; grid-row: span 1; }
+    }
+
+    /* ── Card hover ── */
+    .card-hover {
+      transition: transform .38s cubic-bezier(.25,.46,.45,.94),
+                  border-color .38s ease,
+                  box-shadow .38s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196,30,58,.35) !important;
+      box-shadow: 0 20px 55px rgba(196,30,58,.09);
+    }
+
+    /* ── Bento card ── */
+    .bento-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform .38s ease, border-color .38s ease;
+    }
+    .bento-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(196,30,58,.06), transparent 60%);
+      opacity: 0;
+      transition: opacity .38s ease;
+      pointer-events: none;
+    }
+    .bento-card:hover::after { opacity: 1; }
+    .bento-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212,175,55,.28) !important;
+    }
+
+    /* ── Testimonial ── */
+    .tcard { transition: transform .35s ease, border-color .35s ease; }
+    .tcard:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212,175,55,.28) !important;
+    }
+
+    /* ── Glow dot ── */
+    .gdot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--crimson);
+      box-shadow: 0 0 8px var(--crimson), 0 0 18px rgba(196,30,58,.5);
+      flex-shrink: 0;
+    }
+
+    /* ── Nav link ── */
+    .nav-link { position: relative; transition: color .28s ease; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width .28s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: var(--gold) !important; }
+
+    /* ── Red label line ── */
+    .red-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .red-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 2px;
+      background: linear-gradient(to right, var(--crimson), transparent);
+      border-radius: 2px;
+    }
+
+    /* ── Section divider ── */
+    .s-divider {
+      width: 52px; height: 3px;
+      background: linear-gradient(to right, var(--crimson), var(--gold));
+      border-radius: 2px;
+      margin: 0 auto 24px;
+    }
+
+    /* ── Float anim ── */
+    @keyframes float-y {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+    .float { animation: float-y 4.2s ease-in-out infinite; }
+
+    /* ── Ornament line ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,175,55,.35), transparent);
+    }
+
+    /* ── WhatsApp float btn ── */
+    .wa-float {
+      position: fixed;
+      bottom: 22px; right: 22px;
+      z-index: 9999;
+      transition: transform .3s ease;
+    }
+    .wa-float:hover { transform: scale(1.12) translateY(-3px); }
+
+    /* ── Reveal (initial state for GSAP) ── */
+    .reveal { opacity: 0; transform: translateY(44px); }
+
+    /* ── Stars ── */
+    .stars { color: var(--gold); letter-spacing: 3px; }
+
+    /* ── Sigil decoration ── */
+    .sigil {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    /* ── Section bg alt ── */
+    .bg-alt { background-color: var(--ink-2); }
+
+    /* ── Glow orb ── */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   FLOATING WHATSAPP BUTTON            ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<a href="https://wa.me/817090128822?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20trabalhos%20espirituais."
+   target="_blank" rel="noopener noreferrer"
+   class="wa-float group" aria-label="WhatsApp">
+  <div class="relative">
+    <span class="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-25"></span>
+    <div class="relative w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-xl shadow-green-600/40">
+      <svg viewBox="0 0 24 24" fill="white" class="w-7 h-7" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   HEADER                              ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="glass-header px-5 py-3.5 md:py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 shrink-0">
+        <span class="gdot"></span>
+        <span class="font-display text-lg md:text-xl font-bold leading-none">
+          <span class="g-gold">Quimbanda</span>
+          <span style="color:rgba(240,237,232,.45); font-size:.75em; margin-left:4px;">JP</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#diferenciais" class="nav-link text-sm font-medium" style="color:rgba(240,237,232,.6)">Diferenciais</a>
+        <a href="#servicos"     class="nav-link text-sm font-medium" style="color:rgba(240,237,232,.6)">Serviços</a>
+        <a href="#sobre"        class="nav-link text-sm font-medium" style="color:rgba(240,237,232,.6)">Sobre</a>
+        <a href="#depoimentos"  class="nav-link text-sm font-medium" style="color:rgba(240,237,232,.6)">Depoimentos</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <a href="https://wa.me/817090128822?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20espiritual."
+         target="_blank" rel="noopener noreferrer"
+         class="hidden md:flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105"
+         style="background:var(--crimson); box-shadow:0 4px 20px rgba(196,30,58,.35);">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Falar no WhatsApp
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden p-2 rounded-lg transition-colors" style="color:rgba(240,237,232,.6);" aria-label="Menu">
+        <svg id="ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="ico-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden glass-header border-t" style="border-color:rgba(255,255,255,.04)">
+    <nav class="max-w-7xl mx-auto px-5 py-5 flex flex-col gap-4">
+      <a href="#diferenciais" class="mobile-link text-sm font-medium py-1" style="color:rgba(240,237,232,.7)">Diferenciais</a>
+      <a href="#servicos"     class="mobile-link text-sm font-medium py-1" style="color:rgba(240,237,232,.7)">Serviços</a>
+      <a href="#sobre"        class="mobile-link text-sm font-medium py-1" style="color:rgba(240,237,232,.7)">Sobre</a>
+      <a href="#depoimentos"  class="mobile-link text-sm font-medium py-1" style="color:rgba(240,237,232,.7)">Depoimentos</a>
+      <a href="https://wa.me/817090128822" target="_blank"
+         class="mt-1 flex items-center justify-center gap-2 text-white text-sm font-bold px-5 py-3 rounded-full"
+         style="background:var(--crimson);">
+        Falar no WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   HERO                                ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=80"
+      alt=""
+      id="hero-img"
+      class="w-full h-full object-cover"
+      style="opacity:.38;"
+      onerror="this.style.display='none'"
+    >
+    <div class="hero-overlay absolute inset-0"></div>
+    <!-- Side gradient -->
+    <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(5,5,5,.75) 0%,transparent 50%,rgba(5,5,5,.35) 100%)"></div>
+  </div>
+
+  <!-- Decorative orbs -->
+  <div class="orb w-72 h-72"   style="top:20%;right:18%;background:rgba(196,30,58,.07);"></div>
+  <div class="orb w-96 h-96"   style="bottom:25%;left:10%;background:rgba(212,175,55,.05);"></div>
+  <div class="orb w-48 h-48"   style="top:40%;left:40%;background:rgba(196,30,58,.04);"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-28 pb-16">
+
+    <!-- Badge -->
+    <div id="h-badge" class="inline-flex items-center gap-2.5 glass rounded-full px-4 py-2 mb-8">
+      <span class="gdot w-2 h-2" style="width:7px;height:7px;"></span>
+      <span class="text-xs font-semibold tracking-[.18em] uppercase" style="color:rgba(240,237,232,.65)">Quimbanda Autêntica no Japão</span>
+      <span class="gdot w-2 h-2" style="width:7px;height:7px;"></span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="font-display font-black leading-[1.04] tracking-tight mb-7">
+      <span id="h-l1" class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style="color:var(--cream)">
+        O <em class="g-gold not-italic">Axé</em> que
+      </span>
+      <span id="h-l2" class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+        <span style="color:var(--crimson)">Move</span> Destinos
+      </span>
+    </h1>
+
+    <!-- Sub -->
+    <p id="h-sub" class="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light" style="color:rgba(240,237,232,.58)">
+      Trabalhos espirituais de Quimbanda no Japão, com suporte direto de mestre brasileiro.
+      <span class="font-semibold" style="color:var(--gold)">Atendimento gratuito aos sábados.</span>
+    </p>
+
+    <!-- CTAs -->
+    <div id="h-ctas" class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+      <a href="https://wa.me/817090128822?text=Olá!%20Gostaria%20de%20agendar%20minha%20consulta%20espiritual."
+         target="_blank" rel="noopener noreferrer"
+         class="btn-pulse flex items-center gap-3 text-white font-bold px-8 py-4 rounded-full text-sm md:text-base transition-all duration-300"
+         style="background:var(--crimson);">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Agendar Consulta Gratuita
+      </a>
+      <a href="#servicos"
+         class="group flex items-center gap-2 glass font-medium px-8 py-4 rounded-full text-sm md:text-base transition-all duration-300 hover:border-gold/30"
+         style="color:rgba(240,237,232,.75);">
+        Ver Serviços
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </a>
+    </div>
+
+    <!-- Trust strip -->
+    <div id="h-trust" class="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm" style="color:rgba(240,237,232,.38)">
+      <span class="flex items-center gap-2"><span style="color:var(--gold)">✦</span> Iniciados &amp; experientes</span>
+      <span class="w-px h-4 hidden sm:block" style="background:rgba(255,255,255,.1)"></span>
+      <span class="flex items-center gap-2"><span style="color:var(--gold)">✦</span> Casa de Exu Mirim</span>
+      <span class="w-px h-4 hidden sm:block" style="background:rgba(255,255,255,.1)"></span>
+      <span class="flex items-center gap-2"><span style="color:var(--gold)">✦</span> Hora e dia marcados</span>
+      <span class="w-px h-4 hidden sm:block" style="background:rgba(255,255,255,.1)"></span>
+      <span class="flex items-center gap-2"><span style="color:var(--gold)">✦</span> Sigilo absoluto</span>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="color:rgba(240,237,232,.25)">
+    <span class="text-xs tracking-[.2em] uppercase">Scroll</span>
+    <div class="w-px h-10" style="background:linear-gradient(to bottom, var(--crimson), transparent)"></div>
+  </div>
+</section>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   AUTHORITY MARQUEE                   ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<section class="marquee-wrap py-[18px] border-y" style="background:var(--ink-2);border-color:rgba(255,255,255,.05)">
+  <div class="marquee-track select-none">
+    <!-- Set 1 -->
+    <div class="flex items-center gap-14 pr-14">
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">500+ Trabalhos Realizados</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Casa de Exu Mirim</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Atendimento Gratuito aos Sábados</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Suporte de Mestre do Brasil</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Quimbanda Autêntica no Japão</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Hora e Dia Marcados</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Jogo de Búzios de Exu</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">10+ Anos de Experiência</span>
+      </span>
+    </div>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <div class="flex items-center gap-14 pr-14" aria-hidden="true">
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">500+ Trabalhos Realizados</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Casa de Exu Mirim</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Atendimento Gratuito aos Sábados</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Suporte de Mestre do Brasil</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Quimbanda Autêntica no Japão</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Hora e Dia Marcados</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">Jogo de Búzios de Exu</span>
+      </span>
+      <span class="flex items-center gap-3 shrink-0">
+        <span style="color:var(--gold);font-size:1.1rem">✦</span>
+        <span class="text-xs font-semibold tracking-[.17em] uppercase" style="color:rgba(240,237,232,.45)">10+ Anos de Experiência</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   DIFERENCIAIS — BENTO GRID           ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<section id="diferenciais" class="py-28 md:py-36 px-5 md:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-14 reveal">
+      <p class="red-label text-xs font-bold tracking-[.2em] uppercase mb-4" style="color:var(--crimson);display:inline-flex">Por que nos escolher</p>
+      <h2 class="font-display font-bold leading-tight" style="font-size:clamp(2rem,5vw,3.75rem);color:var(--cream)">
+        Nossos <em class="g-gold not-italic">Diferenciais</em>
+      </h2>
+    </div>
+
+    <!-- Bento -->
+    <div class="bento reveal">
+
+      <!-- Card 1 — Big: Gratuito sábado -->
+      <div class="b-big bento-card glass rounded-2xl p-7 md:p-9 border flex flex-col justify-between" style="border-color:rgba(255,255,255,.07);min-height:280px;">
+        <div class="orb w-52 h-52" style="top:-30px;right:-30px;background:rgba(196,30,58,.1);"></div>
+        <div>
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-6" style="background:rgba(196,30,58,.12);border:1px solid rgba(196,30,58,.22);">🕯️</div>
+          <h3 class="font-display font-bold mb-3 leading-tight" style="font-size:clamp(1.25rem,2.5vw,1.8rem);color:var(--cream)">
+            Atendimento <em class="g-gold not-italic">Gratuito</em><br>aos Sábados
+          </h3>
+          <p class="leading-relaxed text-sm md:text-base" style="color:rgba(240,237,232,.52)">
+            Todo sábado abrimos nossas portas sem cobrar nada — porque o Axé não tem preço. Nosso compromisso é com o seu bem-estar espiritual acima de tudo.
+            <span style="color:rgba(240,237,232,.68)"> (Jogo de búzios cobrado à parte)</span>
+          </p>
+        </div>
+        <div class="flex items-end gap-4 mt-7">
+          <span class="font-display font-black" style="font-size:2.8rem;line-height:1;background:linear-gradient(130deg,#D4AF37,#F0CC55);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">100%</span>
+          <span class="text-sm leading-snug pb-1.5" style="color:rgba(240,237,232,.4)">gratuito aos sábados<br>para consultas básicas</span>
+        </div>
+      </div>
+
+      <!-- Card 2 — Hora marcada -->
+      <div class="b-1 bento-card glass rounded-2xl p-6 border flex flex-col justify-between" style="border-color:rgba(255,255,255,.07);min-height:130px;">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl mb-4" style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);">⏰</div>
+        <div>
+          <h3 class="font-display font-bold text-lg mb-2" style="color:var(--cream)">Hora e Dia Marcados</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(240,237,232,.5)">Seu tempo é valioso. Agendamos com antecedência para garantir atenção total ao seu caso.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 — Casa Exu Mirim -->
+      <div class="b-1 bento-card glass rounded-2xl p-6 border flex flex-col justify-between" style="border-color:rgba(255,255,255,.07);min-height:130px;">
+        <div class="orb w-20 h-20" style="bottom:-10px;right:-10px;background:rgba(212,175,55,.06);"></div>
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl mb-4" style="background:rgba(196,30,58,.1);border:1px solid rgba(196,30,58,.2);">🔥</div>
+        <div>
+          <h3 class="font-display font-bold text-lg mb-2" style="color:var(--cream)">Casa de Exu Mirim</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(240,237,232,.5)">Somos uma casa dedicada ao culto de Exu Mirim, com rituais ancestrais e autênticos.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 — Suporte Brasil -->
+      <div class="b-1 bento-card glass rounded-2xl p-6 border flex flex-col justify-between" style="border-color:rgba(255,255,255,.07);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl mb-4" style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);">🇧🇷</div>
+        <div>
+          <h3 class="font-display font-bold text-lg mb-2" style="color:var(--cream)">Suporte do Brasil</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(240,237,232,.5)">Trabalhamos sob orientação direta de um Mestre Quimbandeiro brasileiro, garantindo autenticidade.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 — Wide: Iniciados -->
+      <div class="b-wide bento-card glass rounded-2xl p-6 border flex flex-col justify-between" style="border-color:rgba(255,255,255,.07);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl mb-4" style="background:rgba(196,30,58,.1);border:1px solid rgba(196,30,58,.2);">⚡</div>
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <h3 class="font-display font-bold text-lg mb-2" style="color:var(--cream)">Iniciados e Experientes</h3>
+            <p class="text-sm leading-relaxed max-w-sm" style="color:rgba(240,237,232,.5)">Somos iniciados na tradição da Quimbanda, com anos de prática, rituais realizados e resultados comprovados.</p>
+          </div>
+          <a href="https://wa.me/817090128822?text=Quero%20saber%20mais%20sobre%20a%20casa!" target="_blank"
+             class="shrink-0 flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 whitespace-nowrap"
+             style="background:rgba(196,30,58,.15);border:1px solid rgba(196,30,58,.3);color:var(--crimson);">
+            Conhecer a casa →
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /bento -->
+  </div>
+</section>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   SERVIÇOS                            ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<section id="servicos" class="py-28 md:py-36 px-5 md:px-8 bg-alt">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <p class="red-label text-xs font-bold tracking-[.2em] uppercase mb-4" style="color:var(--crimson);display:inline-flex">O que oferecemos</p>
+      <h2 class="font-display font-bold leading-tight mb-4" style="font-size:clamp(2rem,5vw,3.75rem);color:var(--cream)">
+        Trabalhos <em class="g-gold not-italic">Espirituais</em>
+      </h2>
+      <p class="max-w-lg mx-auto leading-relaxed" style="color:rgba(240,237,232,.5)">Cada caso é único. Entre em contato e descrevemos a sua situação para um atendimento personalizado.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="services-grid">
+
+      <!-- 1 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">🌿</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Limpeza Espiritual</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Eliminação de energias negativas, olho gordo e influências prejudiciais ao seu campo energético.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20na%20Limpeza%20Espiritual." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 2 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">⚡</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Desmanche de Feitiços</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Desfazimento de trabalhos, feitiçarias e amarrações feitas contra você por terceiros.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20no%20Desmanche%20de%20Feitiços." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 3 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">🛤️</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Abertura de Caminhos</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Desbloqueio espiritual para prosperidade, oportunidades de trabalho e conquistas pessoais.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20na%20Abertura%20de%20Caminhos." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 4 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">💕</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Adoçamento Amoroso</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Harmonização e suavização de conflitos no relacionamento, trazendo paz e compreensão entre o casal.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20no%20Adoçamento%20Amoroso." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 5 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">🔗</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Amarração Amorosa</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Trabalho espiritual para unir ou reatar laços afetivos com a pessoa amada de forma duradoura.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20na%20Amarração%20Amorosa." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 6 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">🐚</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Jogo de Búzios de Exu</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Consulta oracular com os búzios sagrados de Exu para revelar respostas precisas e orientações espirituais.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20no%20Jogo%20de%20Búzios%20de%20Exu." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 7 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">✂️</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Separação</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Trabalho espiritual para afastar pessoas indesejadas ou encerrar relações tóxicas com proteção espiritual.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20no%20trabalho%20de%20Separação." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 8 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">⛓️</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Corte de Laços</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Libertação de vínculos negativos, karmas e energias parasitárias que drenam sua vitalidade e bloqueiam o progresso.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20no%20Corte%20de%20Laços." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 9 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">🌶️</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Apimentar Relacionamento</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Reacende a paixão, o desejo e a atração entre o casal, devolvendo o brilho e a intensidade ao amor.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20em%20Apimentar%20o%20Relacionamento." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- 10 -->
+      <div class="svc-card card-hover glass rounded-2xl p-6 border cursor-pointer flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <span class="text-3xl mb-4">💫</span>
+        <h3 class="font-display font-bold text-base mb-2" style="color:var(--cream)">Curas Espirituais</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(240,237,232,.5)">Tratamentos energéticos para males de origem espiritual. Cada caso avaliado individualmente com cuidado.</p>
+        <a href="https://wa.me/817090128822?text=Olá!%20Tenho%20interesse%20em%20Cura%20Espiritual." target="_blank"
+           class="mt-4 text-sm font-semibold inline-flex items-center gap-1 transition-all hover:gap-2" style="color:var(--crimson)">Consultar <span>→</span></a>
+      </div>
+
+      <!-- CTA card -->
+      <div class="svc-card sm:col-span-2 rounded-2xl p-7 border flex flex-col justify-between"
+           style="background:linear-gradient(135deg,rgba(196,30,58,.18),rgba(196,30,58,.06));border-color:rgba(196,30,58,.22);">
+        <div>
+          <h3 class="font-display font-bold text-lg mb-2" style="color:var(--cream)">Não encontrou o que precisa?</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(240,237,232,.55)">Cada situação espiritual é única. Descreva o seu caso e encontraremos o melhor caminho juntos. Estamos aqui para você.</p>
+        </div>
+        <a href="https://wa.me/817090128822?text=Olá!%20Gostaria%20de%20descrever%20minha%20situação%20para%20receber%20orientação."
+           target="_blank" rel="noopener noreferrer"
+           class="mt-6 flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
+           style="background:var(--crimson);box-shadow:0 6px 24px rgba(196,30,58,.35);">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Falar no WhatsApp Agora
+        </a>
+      </div>
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   SOBRE                               ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<section id="sobre" class="py-28 md:py-36 px-5 md:px-8">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+    <!-- Image block -->
+    <div class="reveal relative">
+      <div class="relative rounded-3xl overflow-hidden" style="aspect-ratio:4/5">
+        <img
+          src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
+          alt="Ritual de Quimbanda"
+          class="w-full h-full object-cover"
+          style="opacity:.85"
+          onerror="this.style.background='linear-gradient(135deg,#1a0a12,#0a0a1a)';this.style.display='block'"
+        >
+        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(5,5,5,.85) 0%,transparent 50%)"></div>
+        <!-- Overlay sigil -->
+        <div class="absolute bottom-6 left-6">
+          <p class="font-display font-black text-6xl" style="color:rgba(212,175,55,.18);line-height:1">✦</p>
+        </div>
+      </div>
+
+      <!-- Floating badge 1 -->
+      <div class="float absolute -bottom-6 -right-5 md:-right-8 glass rounded-2xl p-4 flex flex-col items-center text-center border" style="border-color:rgba(212,175,55,.2);min-width:100px">
+        <span class="font-display font-black g-gold" style="font-size:1.9rem;line-height:1">10+</span>
+        <span class="text-xs mt-1 leading-tight" style="color:rgba(240,237,232,.45)">Anos de<br>Axé</span>
+      </div>
+
+      <!-- Floating badge 2 -->
+      <div class="absolute -top-5 -left-5 md:-left-7 glass rounded-2xl w-16 h-16 flex items-center justify-center border" style="border-color:rgba(196,30,58,.2);font-size:1.7rem">
+        🔥
+      </div>
+    </div>
+
+    <!-- Text block -->
+    <div class="reveal">
+      <p class="red-label text-xs font-bold tracking-[.2em] uppercase mb-4 inline-flex" style="color:var(--crimson)">Nossa História</p>
+      <h2 class="font-display font-bold leading-tight mb-6" style="font-size:clamp(1.8rem,4vw,3rem);color:var(--cream)">
+        Tradição Brasileira<br>no <em class="g-gold not-italic">Coração</em> do Japão
+      </h2>
+
+      <p class="leading-relaxed mb-5" style="color:rgba(240,237,232,.58)">
+        Somos uma casa de Quimbanda sediada no Japão, fundada por iniciados com formação direta na tradição brasileira. Nosso trabalho é guiado e supervisionado por um <strong style="color:var(--cream);font-weight:600">Mestre Quimbandeiro do Brasil</strong>, garantindo a autenticidade dos rituais e a força dos trabalhos.
+      </p>
+      <p class="leading-relaxed mb-8" style="color:rgba(240,237,232,.58)">
+        Como <strong style="color:var(--cream);font-weight:600">Casa de Exu Mirim</strong>, trabalhamos com a energia poderosa e direta deste povo espiritual, reconhecido por sua eficiência e rapidez. Atendemos pessoas de todas as origens com respeito, sigilo absoluto e compromisso total com seu bem-estar.
+      </p>
+
+      <ul class="space-y-3 mb-9">
+        <li class="flex items-center gap-3">
+          <span class="gdot shrink-0"></span>
+          <span class="text-sm" style="color:rgba(240,237,232,.65)">Sigilo absoluto e atendimento humanizado</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="gdot shrink-0"></span>
+          <span class="text-sm" style="color:rgba(240,237,232,.65)">Atendemos em Português, Japonês e Inglês</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="gdot shrink-0"></span>
+          <span class="text-sm" style="color:rgba(240,237,232,.65)">Materiais sagrados importados do Brasil</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="gdot shrink-0"></span>
+          <span class="text-sm" style="color:rgba(240,237,232,.65)">Acompanhamento após o trabalho espiritual</span>
+        </li>
+      </ul>
+
+      <a href="https://wa.me/817090128822?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20a%20casa."
+         target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 glass border font-medium text-sm px-6 py-3 rounded-full transition-all duration-300"
+         style="color:rgba(240,237,232,.7);border-color:rgba(255,255,255,.1);"
+         onmouseover="this.style.borderColor='rgba(212,175,55,.3)';this.style.color='var(--gold)'"
+         onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(240,237,232,.7)'">
+        Conhecer mais sobre a casa <span>→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   DEPOIMENTOS                         ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<section id="depoimentos" class="py-28 md:py-36 px-5 md:px-8 bg-alt">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <p class="red-label text-xs font-bold tracking-[.2em] uppercase mb-4 inline-flex" style="color:var(--crimson)">O que dizem sobre nós</p>
+      <h2 class="font-display font-bold leading-tight" style="font-size:clamp(2rem,5vw,3.75rem);color:var(--cream)">
+        <em class="g-gold not-italic">Resultados</em> Reais
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="tcard-grid">
+
+      <!-- T1 -->
+      <div class="tcard glass rounded-2xl p-6 border flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <div class="stars text-sm mb-4">★★★★★</div>
+        <blockquote class="italic leading-relaxed flex-1 mb-6 text-sm" style="color:rgba(240,237,232,.65);font-family:'Playfair Display',serif">
+          "Depois de anos com o caminho travado, após o trabalho de abertura de caminhos, recebi uma proposta de emprego incrível. O Axé é real!"
+        </blockquote>
+        <div class="flex items-center gap-3 mt-auto">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold" style="background:linear-gradient(135deg,rgba(196,30,58,.4),rgba(212,175,55,.2));color:var(--cream)">M.S</div>
+          <div>
+            <p class="text-sm font-semibold" style="color:var(--cream)">Marcos S.</p>
+            <p class="text-xs" style="color:rgba(240,237,232,.38)">Osaka, Japão</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2 -->
+      <div class="tcard glass rounded-2xl p-6 border flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <div class="stars text-sm mb-4">★★★★★</div>
+        <blockquote class="italic leading-relaxed flex-1 mb-6 text-sm" style="color:rgba(240,237,232,.65);font-family:'Playfair Display',serif">
+          "Fiz o jogo de búzios de Exu e fiquei impressionada com a precisão das revelações. Me sinto muito mais segura para tomar decisões."
+        </blockquote>
+        <div class="flex items-center gap-3 mt-auto">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold" style="background:linear-gradient(135deg,rgba(212,175,55,.4),rgba(196,30,58,.2));color:var(--cream)">A.F</div>
+          <div>
+            <p class="text-sm font-semibold" style="color:var(--cream)">Ana F.</p>
+            <p class="text-xs" style="color:rgba(240,237,232,.38)">Tóquio, Japão</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- T3 -->
+      <div class="tcard glass rounded-2xl p-6 border flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <div class="stars text-sm mb-4">★★★★★</div>
+        <blockquote class="italic leading-relaxed flex-1 mb-6 text-sm" style="color:rgba(240,237,232,.65);font-family:'Playfair Display',serif">
+          "Meu relacionamento estava destruído. Após o adoçamento, meu marido voltou a ser a pessoa que eu conheci. Gratidão eterna ao Exu!"
+        </blockquote>
+        <div class="flex items-center gap-3 mt-auto">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold" style="background:linear-gradient(135deg,rgba(196,30,58,.4),rgba(212,175,55,.2));color:var(--cream)">C.M</div>
+          <div>
+            <p class="text-sm font-semibold" style="color:var(--cream)">Carla M.</p>
+            <p class="text-xs" style="color:rgba(240,237,232,.38)">Nagoya, Japão</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- T4 -->
+      <div class="tcard glass rounded-2xl p-6 border flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <div class="stars text-sm mb-4">★★★★★</div>
+        <blockquote class="italic leading-relaxed flex-1 mb-6 text-sm" style="color:rgba(240,237,232,.65);font-family:'Playfair Display',serif">
+          "O atendimento gratuito de sábado me deu a chance de conhecer o trabalho sem desembolsar nada. A seriedade e o respeito conquistaram minha confiança."
+        </blockquote>
+        <div class="flex items-center gap-3 mt-auto">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold" style="background:linear-gradient(135deg,rgba(212,175,55,.4),rgba(196,30,58,.2));color:var(--cream)">R.T</div>
+          <div>
+            <p class="text-sm font-semibold" style="color:var(--cream)">Ricardo T.</p>
+            <p class="text-xs" style="color:rgba(240,237,232,.38)">Yokohama, Japão</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- T5 -->
+      <div class="tcard glass rounded-2xl p-6 border flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <div class="stars text-sm mb-4">★★★★★</div>
+        <blockquote class="italic leading-relaxed flex-1 mb-6 text-sm" style="color:rgba(240,237,232,.65);font-family:'Playfair Display',serif">
+          "Sofria com uma situação que parecia impossível. O desmanche foi feito com muito axé e competência. Sinto que um peso saiu de cima de mim."
+        </blockquote>
+        <div class="flex items-center gap-3 mt-auto">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold" style="background:linear-gradient(135deg,rgba(196,30,58,.4),rgba(212,175,55,.2));color:var(--cream)">P.N</div>
+          <div>
+            <p class="text-sm font-semibold" style="color:var(--cream)">Patrícia N.</p>
+            <p class="text-xs" style="color:rgba(240,237,232,.38)">Fukuoka, Japão</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- T6 -->
+      <div class="tcard glass rounded-2xl p-6 border flex flex-col" style="border-color:rgba(255,255,255,.07)">
+        <div class="stars text-sm mb-4">★★★★★</div>
+        <blockquote class="italic leading-relaxed flex-1 mb-6 text-sm" style="color:rgba(240,237,232,.65);font-family:'Playfair Display',serif">
+          "Fiz o corte de laços com uma sócia que me causou prejuízo. Após o trabalho, resolvi a situação judicial que estava emperrada há dois anos. Incrível!"
+        </blockquote>
+        <div class="flex items-center gap-3 mt-auto">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold" style="background:linear-gradient(135deg,rgba(212,175,55,.4),rgba(196,30,58,.2));color:var(--cream)">L.G</div>
+          <div>
+            <p class="text-sm font-semibold" style="color:var(--cream)">Leandro G.</p>
+            <p class="text-xs" style="color:rgba(240,237,232,.38)">Kobe, Japão</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tcard-grid -->
+  </div>
+</section>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   FINAL CTA                           ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<section class="relative py-28 md:py-40 px-5 md:px-8 overflow-hidden">
+  <div class="absolute inset-0" style="background:linear-gradient(to bottom,var(--ink),var(--ink-2),var(--ink))"></div>
+  <div class="orb w-[500px] h-[500px]" style="top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(196,30,58,.06);filter:blur(100px);"></div>
+  <div class="orb w-[320px] h-[320px]" style="top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(212,175,55,.05);filter:blur(70px);"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
+    <div class="ornament mb-8">
+      <span class="text-xs font-semibold tracking-[.2em] uppercase px-5" style="color:rgba(212,175,55,.7)">Comece sua transformação hoje</span>
+    </div>
+
+    <h2 class="font-display font-bold leading-tight mb-6" style="font-size:clamp(2.2rem,5.5vw,4.2rem);color:var(--cream)">
+      Seu Destino Pode<br><em class="g-gold not-italic">Mudar Hoje</em>
+    </h2>
+
+    <p class="text-lg leading-relaxed mb-10 max-w-xl mx-auto" style="color:rgba(240,237,232,.5)">
+      Não deixe bloqueios espirituais travarem sua vida. Entre em contato agora e dê o primeiro passo para uma vida mais plena, protegida e abundante.
+    </p>
+
+    <a href="https://wa.me/817090128822?text=Olá!%20Quero%20agendar%20minha%20consulta%20espiritual."
+       target="_blank" rel="noopener noreferrer"
+       class="btn-pulse inline-flex items-center gap-3 text-white font-bold px-10 py-5 rounded-full text-base transition-all duration-300"
+       style="background:var(--crimson);">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Falar no WhatsApp Agora
+    </a>
+
+    <p class="mt-6 text-xs" style="color:rgba(240,237,232,.28)">
+      📅 Sábados: consulta gratuita &nbsp;|&nbsp; 🔒 Sigilo absoluto garantido &nbsp;|&nbsp; ⏰ Hora e dia marcados
+    </p>
+  </div>
+</section>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   FOOTER                              ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<footer class="border-t px-5 md:px-8 pt-14 pb-8" style="background:var(--ink);border-color:rgba(255,255,255,.05)">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <span class="gdot"></span>
+          <span class="font-display text-xl font-bold">
+            <span class="g-gold">Quimbanda</span>
+            <span style="color:rgba(240,237,232,.4);font-size:.75em;margin-left:4px">JP</span>
+          </span>
+        </div>
+        <p class="text-sm leading-relaxed" style="color:rgba(240,237,232,.38)">
+          Trabalhos espirituais autênticos de Quimbanda no Japão. Casa de Exu Mirim com suporte de mestre quimbandeiro brasileiro.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="text-xs font-bold tracking-[.16em] uppercase mb-5" style="color:rgba(240,237,232,.55)">Serviços</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#servicos" class="text-sm transition-colors duration-200" style="color:rgba(240,237,232,.38)" onmouseover="this.style.color='rgba(240,237,232,.7)'" onmouseout="this.style.color='rgba(240,237,232,.38)'">Limpeza Espiritual</a></li>
+          <li><a href="#servicos" class="text-sm transition-colors duration-200" style="color:rgba(240,237,232,.38)" onmouseover="this.style.color='rgba(240,237,232,.7)'" onmouseout="this.style.color='rgba(240,237,232,.38)'">Abertura de Caminhos</a></li>
+          <li><a href="#servicos" class="text-sm transition-colors duration-200" style="color:rgba(240,237,232,.38)" onmouseover="this.style.color='rgba(240,237,232,.7)'" onmouseout="this.style.color='rgba(240,237,232,.38)'">Jogo de Búzios de Exu</a></li>
+          <li><a href="#servicos" class="text-sm transition-colors duration-200" style="color:rgba(240,237,232,.38)" onmouseover="this.style.color='rgba(240,237,232,.7)'" onmouseout="this.style.color='rgba(240,237,232,.38)'">Amarração Amorosa</a></li>
+          <li><a href="#servicos" class="text-sm transition-colors duration-200" style="color:rgba(240,237,232,.38)" onmouseover="this.style.color='rgba(240,237,232,.7)'" onmouseout="this.style.color='rgba(240,237,232,.38)'">Desmanche de Feitiços</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-xs font-bold tracking-[.16em] uppercase mb-5" style="color:rgba(240,237,232,.55)">Contato</h4>
+        <a href="https://wa.me/817090128822" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2.5 text-sm mb-3 transition-colors duration-200 group"
+           style="color:rgba(240,237,232,.38)"
+           onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(240,237,232,.38)'">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          +81 70-9012-8822
+        </a>
+        <p class="text-xs leading-loose" style="color:rgba(240,237,232,.28)">
+          Atendimento: Segunda a Sexta<br>
+          <span style="color:rgba(212,175,55,.45)">Sábados: Consulta gratuita</span>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3" style="border-color:rgba(255,255,255,.04)">
+      <p class="text-xs" style="color:rgba(240,237,232,.2)">© 2026 Quimbanda JP — Todos os direitos reservados.</p>
+      <p class="text-xs" style="color:rgba(240,237,232,.15)">Laroyê Exu · Salve Exu Mirim</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ╔═══════════════════════════════════════╗ -->
+<!-- ║   SCRIPTS                             ║ -->
+<!-- ╚═══════════════════════════════════════╝ -->
+<script>
+  // ── GSAP ──────────────────────────────────────
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero entrance
+  const htl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 });
+  htl
+    .from('#h-badge',  { opacity: 0, y: 28, duration: 0.75 })
+    .from('#h-l1',     { opacity: 0, y: 64, duration: 0.85 }, '-=0.35')
+    .from('#h-l2',     { opacity: 0, y: 64, duration: 0.85 }, '-=0.6')
+    .from('#h-sub',    { opacity: 0, y: 40, duration: 0.75 }, '-=0.5')
+    .from('#h-ctas',   { opacity: 0, y: 30, duration: 0.65 }, '-=0.45')
+    .from('#h-trust',  { opacity: 0, y: 20, duration: 0.55 }, '-=0.38');
+
+  // Hero parallax
+  gsap.to('#hero-img', {
+    yPercent: 12, ease: 'none',
+    scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  // Generic reveal
+  gsap.utils.toArray('.reveal').forEach(el => {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.95, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 86%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // Bento cards stagger
+  gsap.from('.bento-card', {
+    opacity: 0, y: 36, scale: 0.97, duration: 0.7, ease: 'power2.out', stagger: 0.1,
+    scrollTrigger: { trigger: '#diferenciais', start: 'top 72%', toggleActions: 'play none none none' }
+  });
+
+  // Service cards stagger
+  gsap.from('.svc-card', {
+    opacity: 0, y: 36, duration: 0.6, ease: 'power2.out', stagger: 0.07,
+    scrollTrigger: { trigger: '#services-grid', start: 'top 75%', toggleActions: 'play none none none' }
+  });
+
+  // Testimonial cards stagger
+  gsap.from('.tcard', {
+    opacity: 0, y: 36, duration: 0.6, ease: 'power2.out', stagger: 0.1,
+    scrollTrigger: { trigger: '#tcard-grid', start: 'top 75%', toggleActions: 'play none none none' }
+  });
+
+  // ── Mobile menu ─────────────────────────────
+  const menuBtn    = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const icoMenu    = document.getElementById('ico-menu');
+  const icoX       = document.getElementById('ico-x');
+
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden');
+    icoMenu.classList.toggle('hidden', !open);
+    icoX.classList.toggle('hidden', open);
+  });
+
+  // Close on link click
+  document.querySelectorAll('.mobile-link').forEach(l => {
+    l.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      icoMenu.classList.remove('hidden');
+      icoX.classList.add('hidden');
+    });
+  });
+</script>
+
+</body>
+</html>
